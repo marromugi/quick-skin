@@ -1,27 +1,29 @@
-# phrasing の問い
+# phrasing questions
 
-SKILL.md の 12 の原則から、判定の問いだけを抜き出した一覧です。上から順にデザインへ当てます。「いいえ」になった問いは、SKILL.md の同じ見出しに戻って直します。
+The questions alone, taken from the twelve principles in SKILL.md. Ask them
+of a design from the top. For any question answered "no", go back to the
+heading of the same name in SKILL.md and fix it.
 
-## 見る
+## See
 
-- 区画と余白: 初めて見た人が、各区画を指して何をする場所か言えますか。
-- 情報量と開示: 置いてある要素と文のそれぞれに、置く理由を言えますか。
-- 階層と現在地: 今いる場所と一つ上への戻り方を、画面だけで言えますか。
+- Regions and space: Can someone seeing it for the first time point at each region and say what it is for?
+- Amount of information and disclosure: Can you give a reason for each element and each piece of text on the screen?
+- Hierarchy and current location: From the screen alone, can you say where you are and how to go up one level?
 
-## 選ぶ
+## Choose
 
-- 状態に応じた主要アクション: 初めて見た人が、3 秒で主要アクションを指せますか。
-- 文脈に合う案内だけ: 出している案内は、今この操作をしている人に要りますか。
+- The primary action follows the state: Can someone seeing it for the first time point at the primary action within three seconds?
+- Only guidance that fits the context: Does the person doing this right now need the guidance being shown?
 
-## 返る
+## Respond
 
-- 自己帰属感: 触れた瞬間に、触れたその場所が変わりますか。
-- 層と出どころ: 操作で現れたものは上の層にあり、出どころと構造のどちらに従うか決めていますか。
-- 200ms 以下: 200ms を超える応えがあるなら、それは意図した演出ですか。
-- 身動きを止めない: 操作できない状態のそれぞれに、理由が示されていますか。
-- 状態が分かる: 押したあとの各段階で、今どの状態かが読めますか。
+- Sense of agency: The moment something is touched, does that very spot change?
+- Layer and origin: Does what an action brings up sit on a higher layer, and has it been decided whether it follows its origin or the structure?
+- 200 ms or less: If any response takes longer than 200 ms, is it a deliberate effect?
+- Never leave people stuck: Does every state where the person cannot act show a reason?
+- The state is readable: At each stage after a press, can you read which state it is in?
 
-## 守る
+## Protect
 
-- 戻す手段か確認か: 取り消せない操作はすべて確認を通り、それ以外は戻せますか。
-- 同じ操作は同じ形: 同じ操作が他の場所にあるとき、見た目と応えは同じですか。
+- A way back, or a confirmation: Does every action that cannot be undone pass through a confirmation, and can everything else be undone?
+- The same action, the same form: Where the same action appears elsewhere, does it look and respond the same?

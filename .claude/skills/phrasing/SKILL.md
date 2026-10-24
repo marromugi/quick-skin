@@ -1,154 +1,224 @@
 ---
 name: phrasing
-description: "デザインが人に対して何をすべきかを決める原則です。12 の原則を 4 つの括りで持ちます。括りは見る、選ぶ、返る、守るです。デザインの方針を決めるときと、画面や導線を設計するときに使います。画面を実装するときと、UI の PR を見るときにも使います。「デザインの方針を決めて」「UX を見て」「導線を整理して」と言われたときに使います。「使いにくい」「この画面どう思う」と言われたときも使います。UI を含む設計、実装、レビューのどれでも、UI に触れるなら使います。色や角丸、動きの数値はコードのトークンに任せます。コードの置き場は composer に任せます。ターミナル出力やログには使いません。"
+description: "The principles for what a design must do for the person using it: twelve principles in four groups — see, choose, respond, protect. Use it when setting a design direction, when designing a screen or a flow, when implementing a screen, and when reviewing a UI PR — whenever work of any kind touches UI. Also use it when the developer says 「デザインの方針を決めて」「UX を見て」「導線を整理して」「使いにくい」「この画面どう思う」. Values for colour, corner radius, and motion are left to the code's tokens; where code goes is left to composer. Not for terminal output or logs."
 ---
 
 # phrasing
 
-phrasing は、デザインが人に対して何をすべきかを決めます。何を見せて何を選ばせるか、どう応えて何から守るかです。
+phrasing decides what a design must do for the person using it: what it
+shows and what it lets them choose, how it responds and what it protects
+them from.
 
-見た目の値はコードのトークンが持ちます。コードの置き場は composer が決めます。phrasing はその手前で、デザインが果たす役割を決めます。
+Visual values live in the code's tokens. Where code goes is composer's
+call. phrasing comes before both: it decides the role the design plays.
 
-## いつ使うか
+## When to use it
 
-- デザインの方針を決めるときに使います。
-- 画面を実装するときに使います。
-- UI の PR を見るときに使います。`references/checklist.md` で照合します。
+- When setting a design direction.
+- When implementing a screen.
+- When reviewing a UI PR, checking against `references/checklist.md`.
 
-## 原則
+## Principles
 
-すべての原則は同じ型で書いてあります。太字の規則が 1 文あり、理由が続きます。最後に判定の問いが 1 つあります。問いに「はい」と答えられなければ、デザインがその役割を果たしていません。
+Every principle is written in the same form: one rule in bold, the reason
+after it, and one question at the end. If the question cannot be answered
+"yes", the design is not playing its role.
 
-原則同士がぶつかることがあります。そのときは、どちらを取るかを天秤にかけて決め、理由を残します。
+Principles can pull against each other. When they do, weigh which one to
+follow, decide, and record why.
 
-### 見る
+### See
 
-デザインは、どこに何があるかを迷わず掴めるようにします。
+The design lets people grasp what is where without hesitating.
 
-#### 区画と余白
+#### Regions and space
 
-**デザインは画面を区画に分け、各区画が何をする場所かを示します。** 区画の境目は余白が作ります。余白が足りないと、隣の区画と混ざって見えます。線や枠で分ける前に、余白で分けます。
+**The design divides the screen into regions and shows what each region is
+for.** Space makes the boundary between regions. Without enough space, a
+region blurs into its neighbour. Separate with space before reaching for
+lines or borders.
 
-問い: 初めて見た人が、各区画を指して何をする場所か言えますか。
+Question: Can someone seeing it for the first time point at each region and
+say what it is for?
 
-#### 情報量と開示
+#### Amount of information and disclosure
 
-**デザインは、置く情報をその人に役立つものに絞ります。** 情報が増えるほど、探す負担が増えます。主要でない操作は、必要なときだけ出す形を検討します。ポップオーバーやツールチップがその手段です。
+**The design keeps only the information that helps the person.** The more
+there is, the harder it is to find anything. Consider showing secondary
+actions only when they are needed; popovers and tooltips are ways to do
+that.
 
-文は最後の手段です。文があふれると、どれを読めばよいか分からなくなります。伝えたいことは、まず状態の見た目で表します。無効なら薄くし、選択中なら色を変えます。見た目で表せないことだけを、文にします。
+Text is the last resort. When text overflows, nobody knows which part to
+read. Express what you want to say through the look of the state first:
+dim what is disabled, change the colour of what is selected. Put into words
+only what the look cannot express.
 
-隠してよいのは、次の 3 つを満たす操作だけです。
+Hide an action only when all three hold:
 
-- 使う頻度が低いです。
-- 使わなくても目的を果たせます。
-- 隠れていても、見つけたあとに戻れます。
+- It is used rarely.
+- The goal can be reached without it.
+- Once found, it can be found again.
 
-問い: 置いてある要素と文のそれぞれに、置く理由を言えますか。
+Question: Can you give a reason for each element and each piece of text on
+the screen?
 
-#### 階層と現在地
+#### Hierarchy and current location
 
-**デザインは階層を持ち、今どの階層のどこにいるかを示します。** サイドバーやナビゲーションバーが現在地を示します。上の階層が見えれば、戻り方も分かります。モーダルやポップオーバーは一時的な層です。階層の位置ではありません。
+**The design has a hierarchy and shows where in it the person is now.** A
+sidebar or a navigation bar shows the current location. When the level
+above is visible, the way back is clear too. Modals and popovers are
+temporary layers, not positions in the hierarchy.
 
-問い: 今いる場所と一つ上への戻り方を、画面だけで言えますか。
+Question: From the screen alone, can you say where you are and how to go up
+one level?
 
-### 選ぶ
+### Choose
 
-デザインは、今何をすべきかが迷わず決まるようにします。
+The design makes it clear, without hesitation, what to do now.
 
-#### 状態に応じた主要アクション
+#### The primary action follows the state
 
-**デザインは、その場の役割に対する主要アクションへ最短で導きます。** 主要アクションは状態で変わります。保存に失敗した直後なら、再試行が主要アクションです。主要アクションは 1 つに絞り、目立つ場所に置きます。
+**The design leads by the shortest path to the primary action for the role
+of the place.** The primary action changes with the state: right after a
+save fails, it is retry. Keep to one primary action and put it where it
+stands out.
 
-問い: 初めて見た人が、3 秒で主要アクションを指せますか。
+Question: Can someone seeing it for the first time point at the primary
+action within three seconds?
 
-#### 文脈に合う案内だけ
+#### Only guidance that fits the context
 
-**デザインは、今の状態と次の一手を示します。** ただし案内は、その人の操作の文脈に合うものに限ります。全員に要るわけではない案内は、要らない人にとって雑音です。案内を出す前に、この人が今それを必要とするかを問います。
+**The design shows the current state and the next move,** but only guidance
+that fits what this person is doing. Guidance not everyone needs is noise to
+those who do not. Before showing guidance, ask whether this person needs it
+now.
 
-問い: 出している案内は、今この操作をしている人に要りますか。
+Question: Does the person doing this right now need the guidance being
+shown?
 
-### 返る
+### Respond
 
-デザインは、触れたときも押したときも応えます。待つときも離れようとするときも同じです。応えがないと、人は壊れたと思います。
+The design responds when touched and when pressed, while people wait and
+when they try to leave. Without a response, people assume it is broken.
 
-#### 自己帰属感
+#### Sense of agency
 
-**デザインは、触れた場所で触れた瞬間に応えます。** 応えが遅れると、自分がやったという感覚が切れます。離れた場所で起きても同じです。ホバーも押下も、応えは触れたその要素で起こします。
+**The design responds where it was touched, the moment it was touched.** A
+late response breaks the sense of "I did that"; so does one that happens
+somewhere else. Hover and press both respond on the element that was
+touched.
 
-問い: 触れた瞬間に、触れたその場所が変わりますか。
+Question: The moment something is touched, does that very spot change?
 
-#### 層と出どころ
+#### Layer and origin
 
-**操作で現れたものは、ほかの何よりも上の層に置きます。** 操作した直後に人が注目しているのは、その操作が生んだものです。ページの他の情報と同じ層に押し込むと、何が起きたか分からなくなります。だから一つ上の層に置き、層の違いで強調します。
+**What an action brings up sits above everything else.** Right after acting,
+the person is looking at what the action produced. Squeezed into the same
+layer as the rest of the page, it hides what happened. So it goes one layer
+up, and the difference in layer gives it emphasis.
 
-現れるときの動きは、出どころの比喩に従います。ボタンから出るポップオーバーは、ボタンの位置から透過と拡大を同時に行います。小さなボタンの中から大きなものが出てきた、という比喩を成り立たせるためです。これは自己帰属感の延長です。
+How it appears follows the metaphor of where it came from. A popover from a
+button scales up and fades in from the button's position at the same time,
+so the metaphor holds that something large came out of a small button. This
+extends the sense of agency.
 
-ただし、出どころに従えない場合があります。モーダルは、ボタンから出たというより画面全体に現れます。中身に要る余白や文字の量と重要度が、出どころへの帰属より重いからです。これはアプリの構造が課す制約です。出どころへの帰属と中身の重さを天秤にかけて、どちらに従うかを決めます。
+Sometimes the origin cannot be followed. A modal appears across the whole
+screen rather than out of the button, because the space, the amount of text,
+and the weight its content needs outweigh belonging to its origin. That is a
+constraint the app's structure imposes. Weigh belonging to the origin
+against the weight of the content, and decide which to follow.
 
-問い: 操作で現れたものは上の層にあり、出どころと構造のどちらに従うか決めていますか。
+Question: Does what an action brings up sit on a higher layer, and has it
+been decided whether it follows its origin or the structure?
 
-#### 200ms 以下
+#### 200 ms or less
 
-**応えは 200ms 以内に終えます。** それより長いと、応えではなく遅れに見えます。状態が頻繁に入れ替わる場面では、遷移を付けずに即時に切り替えます。遷移が残像になるからです。
+**A response finishes within 200 ms.** Anything longer reads as a delay, not
+a response. Where states change often, switch instantly with no transition;
+a transition leaves an afterimage.
 
-例外は、意図した演出だけです。完了を祝うメッセージなどがそれにあたります。
+The only exception is a deliberate effect, such as a message celebrating
+completion.
 
-問い: 200ms を超える応えがあるなら、それは意図した演出ですか。
+Question: If any response takes longer than 200 ms, is it a deliberate
+effect?
 
-#### 身動きを止めない
+#### Never leave people stuck
 
-**デザインは、人の操作を妨げません。** 妨げるなら、理由を伝えます。妨げるとは、身動きが取れない状態のすべてです。待ち表示で操作できない状態も含みます。離脱を止める案内も、押せないボタンも含みます。閉じられない案内も同じです。理由のない妨げは、壊れているように見えます。
+**The design does not block what the person is doing. When it must, it says
+why.** Blocking is any state where the person cannot move: a loading state
+that disables everything, a prompt that stops them leaving, a button that
+cannot be pressed, guidance that cannot be closed. A block with no reason
+looks broken.
 
-理由は、まず状態の見た目で伝えます。押せないボタンや入力できない欄は、見た目で無効だと分かれば足ります。理由の文を横に並べません。文を絞る理由は「情報量と開示」にあります。理由を添えるなら、ツールチップにとどめます。
+Give the reason through the look of the state first. A button that cannot be
+pressed or a field that cannot be filled is enough when it looks disabled;
+do not line up a sentence of explanation beside it. Why text is kept short
+is in "Amount of information and disclosure". If a reason is added, keep it
+to a tooltip.
 
-問い: 操作できない状態のそれぞれに、理由が示されていますか。
+Question: Does every state where the person cannot act show a reason?
 
-#### 状態が分かる
+#### The state is readable
 
-**デザインは、「処理中」「保留中」「成功」「失敗」のどれにあるかを示します。** 押したあとに何も変わらないと、押せたのか分かりません。処理中は処理中と示し、終わったら結果を示します。失敗なら、次にどうすればよいかも添えます。
+**The design shows whether something is in progress, pending, succeeded, or
+failed.** If nothing changes after a press, nobody knows whether it
+registered. Show in-progress as in-progress, and the result when it ends. On
+failure, add what to do next.
 
-状態は、まず押したその要素の見た目で示します。文を足すのは、見た目で表せないときだけです。失敗のあとの次の一手がその例です。
+Show the state on the look of the pressed element first. Add text only when
+the look cannot express it, such as the next move after a failure.
 
-問い: 押したあとの各段階で、今どの状態かが読めますか。
+Question: At each stage after a press, can you read which state it is in?
 
-### 守る
+### Protect
 
-デザインは、間違いから人を守り、予測が当たるようにします。
+The design protects people from mistakes and keeps their predictions right.
 
-#### 戻す手段か確認か
+#### A way back, or a confirmation
 
-**デザインは、取り消せる操作に戻す手段を、取り消せない操作に確認を用意します。** 危険な操作は、必ず確認を通る動線にします。確認を増やしすぎると、読まずに押す癖がつきます。本当に危険な場面で効かなくなります。だから確認は、取り消せない操作に限ります。
+**The design gives a way to undo what can be undone, and a confirmation for
+what cannot.** A dangerous action always passes through a confirmation. Too
+many confirmations teach people to press without reading, and then they fail
+where it matters. So confirmations are kept to what cannot be undone.
 
-問い: 取り消せない操作はすべて確認を通り、それ以外は戻せますか。
+Question: Does every action that cannot be undone pass through a
+confirmation, and can everything else be undone?
 
-#### 同じ操作は同じ形
+#### The same action, the same form
 
-**同じ操作は、どこでも同じ見た目で同じように応えます。** 予測が当たることで、自己帰属感が育ちます。予測が外れるたびに、学び直しを強います。可能なら、共通の部品として切り出します。ソフトウェア全体の資産として再利用します。
+**The same action looks the same and responds the same way everywhere.**
+Predictions that come true build the sense of agency; each one that fails
+forces relearning. Where possible, cut it out as a shared component and
+reuse it as an asset of the whole software.
 
-問い: 同じ操作が他の場所にあるとき、見た目と応えは同じですか。
+Question: Where the same action appears elsewhere, does it look and respond
+the same?
 
-## 使い方
+## How to use it
 
-デザインを決めるときは、次の順に進めます。
+When deciding a design:
 
-1. 「見る」「選ぶ」「返る」「守る」の順に、各問いを当てます。
-2. 「いいえ」になった原則を直してから、次に進みます。
-3. 直せない理由があるなら、その理由を issue に書きます。
+1. Ask each question in order: See, Choose, Respond, Protect.
+2. Fix any principle answered "no" before moving on.
+3. If there is a reason it cannot be fixed, write that reason in the record
+   of the work.
 
-レビューするときは、次の順に進めます。
+When reviewing:
 
-1. `references/checklist.md` の問いを上から当てます。
-2. 「いいえ」になった箇所を指摘します。指摘には次の 3 点を書きます。
-   - どの原則に反するかを書きます。
-   - どこがそうなっているかを書きます。
-   - その結果、人に何が起きるかを書きます。
+1. Ask the questions in `references/checklist.md` from the top.
+2. Point out every "no". Each finding says three things:
+   - which principle it breaks;
+   - where it happens;
+   - what that does to the person.
 
-## 扱わないもの
+## Out of scope
 
-- 色や角丸、影や動きの数値はコードのトークンが持ちます。
-- コードの置き場や部品の切り方は composer が決めます。
-- ターミナル出力やログは対象外です。
+- Values for colour, corner radius, shadow, and motion live in the code's
+  tokens.
+- Where code goes and how components are cut is composer's call.
+- Terminal output and logs.
 
 ## References
 
-- `references/checklist.md` は、12 の問いの一覧です。
+- `references/checklist.md` lists the twelve questions.
